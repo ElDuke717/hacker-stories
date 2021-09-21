@@ -29,6 +29,14 @@ const list = [
     points: 5,
     objectID: 2,
   },
+  {
+    title: 'Composing Software',
+    url: 'https://leanpub.com/composingsoftware',
+    author: 'Eric Ellliot',
+    num_comments: 7,
+    points: 4,
+    objectID: 3,
+  }
 ];
 
 function App() {
@@ -38,26 +46,43 @@ function App() {
 
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" />
-<hr/>
 
-  <ul>
-        {list.map(function (item) {
-          return (
-          <li key={item.objectID}>
-          <span>
-            <a href={item.url}>{item.title}</a>
-          </span>
-          <span>{item.author}</span>
-          <span>{item.num_comments}</span>
-          <span>{item.points}</span>
-          {item.title}
-          </li>
-          );
-        })}
-  </ul>
+      <hr />
 
+      <List />
     </div>
   );
 }
+
+function Search() {
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
+      </div>
+  );
+}
+
+function List() {
+  return (
+  <ul>
+        {list.map(function (item) {
+          return (
+            <li key={item.objectID}>
+              <span>
+                <a href={item.url}>{item.title}</a>
+              </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </li>
+          );
+        })}
+      </ul>
+  );
+}
+
+
+ 
 
 export default App;
