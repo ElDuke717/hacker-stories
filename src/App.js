@@ -39,8 +39,7 @@ const list = [
   }
 ];
 
-const  App = () => 
-   (
+const  App = () =>    (
     <div>
       <h1>My Hacker Stories</h1>
 
@@ -55,8 +54,7 @@ const  App = () =>
   );
 
 
-const Search = () => 
-  (
+const Search = () =>   (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" />
@@ -64,8 +62,7 @@ const Search = () =>
   );
 
 
-const List = () => {
-  return (
+const List = () => (
   <ul>
         {list.map( (item) => {
           return (
@@ -81,9 +78,5 @@ const List = () => {
         })}
       </ul>
   );
-}
-
-
- 
 
 export default App;
