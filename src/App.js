@@ -36,7 +36,14 @@ const App = () => {
     }
   ];
   
-  const [searchTerm, setSearchTerm] = React.useState('React');
+  const [searchTerm, setSearchTerm] = 
+  React.useState(
+    localStorage.getItem('search') || 'React'
+    );
+
+    React.useEffect(()=> {
+      localStorage.setItem('search', searchTerm);
+    }, [searchTerm]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -45,7 +52,8 @@ const App = () => {
   const searchedStories = stories.filter( (story) =>
     story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-return (
+
+  return (
   <div>
     <h1>My Hacker Stories</h1>
 
@@ -58,7 +66,7 @@ return (
 );
 }
 
-const Search = ( {search, onSearch }) =>  {  
+const Search = ({search, onSearch }) =>  {  
   return (
     <div>
       <label htmlFor="search">Search: </label>
